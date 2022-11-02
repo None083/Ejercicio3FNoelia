@@ -120,4 +120,35 @@ public class Ejercicio3FNoelia {
         }
 
     }
+    
+    public static String menuInicial () {
+        
+        String codigoOpcion = "";
+        codigoOpcion = JOptionPane.showInputDialog("""
+                                     ELIJA UNA OPCION
+                           ---------------------------------------------------------
+                           - Pulse 1 para ver los productos
+                           - Escriba "salir" para cerrar el programa
+                           """);
+        
+        return codigoOpcion;
+    }
+    
+    public static boolean esCodigoOpcionValido (String codigoOpcion) {
+        
+        return (codigoOpcion.equalsIgnoreCase("salir") ||
+                codigoOpcion.equalsIgnoreCase("calcular"));
+        
+    }
+    
+    public static String pedirOpcion () {
+        do{
+            opcion = mostrarMenu();
+            
+        } while (!esCodigoOpcionValido)
+                return codigoOpcion
+    }
+    
+    
+    
 }
