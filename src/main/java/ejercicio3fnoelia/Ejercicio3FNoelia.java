@@ -111,14 +111,23 @@ public class Ejercicio3FNoelia {
                 || codigoProducto.equalsIgnoreCase("T1")
                 || codigoProducto.equalsIgnoreCase("P1")
                 || codigoProducto.equalsIgnoreCase("T2")
-                || codigoProducto.equalsIgnoreCase("M2"));
+                || codigoProducto.equalsIgnoreCase("M2"))
+                || codigoProducto.equalsIgnoreCase("salir");
     }
 
     public static String pedirCodigo() {
 
         String codigoProducto = "";
         do {
-            codigoProducto = menuCodigo();
+
+            if (!codigoProducto.equalsIgnoreCase("salir")) {
+                codigoProducto = menuCodigo();
+                if (!codigoProducto.equalsIgnoreCase("salir")) {
+
+                } else {
+                    codigoProducto = "salir";
+                }
+            }
 
         } while (!esCodigoProductoValido(codigoProducto));
         return codigoProducto;
