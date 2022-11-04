@@ -119,16 +119,12 @@ public class Ejercicio3FNoelia {
 
         String codigoProducto = "";
         do {
-
             if (!codigoProducto.equalsIgnoreCase("salir")) {
                 codigoProducto = menuCodigo();
-                if (!codigoProducto.equalsIgnoreCase("salir")) {
-
-                } else {
+                
+            }else {
                     codigoProducto = "salir";
                 }
-            }
-
         } while (!esCodigoProductoValido(codigoProducto));
         return codigoProducto;
 
@@ -137,12 +133,21 @@ public class Ejercicio3FNoelia {
     public static double leerMateriaPrima(double max, double min) {
 
         double precioMateriaDouble = 0;
+        boolean repetir = true;
 
         do {
-            String precioMateria = JOptionPane.showInputDialog(
-                    "Introduzca el precio de la materia prima entre 0.1 y 1");
-            precioMateriaDouble = Double.parseDouble(precioMateria);
-        } while (precioMateriaDouble < min || precioMateriaDouble > max);
+            repetir = true;
+            try {
+                String precioMateria = JOptionPane.showInputDialog(
+                        "Introduzca el precio de la materia prima entre 0.1 y 1");
+                precioMateriaDouble = Double.parseDouble(precioMateria);
+                repetir = false;
+            } catch (NumberFormatException ex) {
+                JOptionPane.showInputDialog("Precio erróneo");
+
+            }
+
+        } while (repetir || precioMateriaDouble < min || precioMateriaDouble > max);
 
         return precioMateriaDouble;
 
@@ -187,4 +192,9 @@ public class Ejercicio3FNoelia {
 
     }
 
+    //    do {
+//            String precioMateria = JOptionPane.showInputDialog(
+//                    "Introduzca el precio de la materia prima entre 0.1 y 1");
+//            precioMateriaDouble = Double.parseDouble(precioMateria);
+//        } while (precioMateriaDouble < min || precioMateriaDouble > max);
 }
